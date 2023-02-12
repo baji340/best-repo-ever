@@ -1,0 +1,12 @@
+<apex:page controller="Mapexample" lightningstylesheets="true">
+    <apex:form >
+        <apex:selectList value="{!selected}" size="1">
+            <apex:selectOptions value="{!cities}"/>
+            
+        </apex:selectList>
+         <apex:selectList size="1">
+            <apex:selectOptions value="{!places}"/>
+            <apex:commandButton value="change" action="{!getdata}"/>
+        </apex:selectList>
+    </apex:form>
+</apex:page>

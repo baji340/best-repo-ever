@@ -1,0 +1,6 @@
+<aura:component >
+    <aura:handler  event="c:AppEvent" action="{!c.doHandleFromChild}"/>
+    <aura:attribute name="parentMessage" type="String" />
+    {!v.parentMessage}
+
+</aura:component>

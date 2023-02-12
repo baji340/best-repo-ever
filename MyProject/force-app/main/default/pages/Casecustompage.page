@@ -1,0 +1,17 @@
+<apex:page standardController="Case" extensions="Casecontroller"  lightningstylesheets="true">
+    <apex:form >
+        <apex:pageBlock title="Case Information">
+            <apex:commandButton value="save" action="{!save}"/>
+            <apex:pageBlockSection >
+                <apex:inputField value="{!newCase.Account.Name}"/>
+                <apex:inputField value="{!newCase.Status}"/>
+                <apex:inputField value="{!newCase.Origin}"/>
+            </apex:pageBlockSection>
+            <apex:inputFile styleclass="fileToUpload" value="{!versiondata1}" filename="{!Title1}" contentType="{!Type}" />
+            <apex:inputFile styleclass="fileToUpload" value="{!versiondata2}" filename="{!Title2}" contentType="{!Type1}" />
+            <apex:inputFile styleclass="fileToUpload" value="{!versiondata3}" filename="{!Title3}" contentType="{!Type2}" />
+            <apex:inputFile styleclass="fileToUpload" value="{!versiondata4}" filename="{!Title4}" contentType="{!Type3}" />
+            <apex:inputFile styleclass="fileToUpload" value="{!versiondata5}" filename="{!Title5}" contentType="{!Type4}" />
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

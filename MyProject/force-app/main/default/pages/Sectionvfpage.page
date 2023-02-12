@@ -1,0 +1,57 @@
+<apex:page >
+    <apex:pageBlock >
+        <apex:pageBlockSection id="op1" columns="1">
+            <apex:facet name="header">
+            
+            <apex:outputLabel title="Option1" onclick="document.getElementById('{!$Component.op1}').childNodes[0].childNodes[0].click();">
+            <script>twistSection(document.getElementById("{!$Component.op1}").childNodes[0].childNodes[0]);document.getElementById("{!$Component.op1}").childNodes[0].style.cssText = "cursor:pointer;" </script>
+                Option1
+            </apex:outputLabel>
+            </apex:facet>
+            <script> twistSection(document.getElementById('img_{!$Component.op1}')); </script>
+            <apex:pageBlockSectionItem >
+                <span>This is a test</span>
+            </apex:pageBlockSectionItem>    
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection id="op2" columns="1">
+            <apex:facet name="header">
+            
+            <apex:outputLabel onclick="document.getElementById('{!$Component.op2}').childNodes[0].childNodes[0].click();">
+            <script>twistSection(document.getElementById("{!$Component.op2}").childNodes[0].childNodes[0]);document.getElementById("{!$Component.op2}").childNodes[0].style.cssText = "cursor:pointer;" </script>
+                Option2
+            </apex:outputLabel>
+            </apex:facet>
+            <script> twistSection(document.getElementById('img_{!$Component.op2}')); </script>
+                            <apex:pageBlockSectionItem >
+                <span>This is a test2</span>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection id="op3">
+                        <apex:facet name="header">
+            
+            <apex:outputLabel onclick="document.getElementById('{!$Component.op3}').childNodes[0].childNodes[0].click();">
+            <script>twistSection(document.getElementById("{!$Component.op3}").childNodes[0].childNodes[0]);document.getElementById("{!$Component.op3}").childNodes[0].style.cssText = "cursor:pointer;" </script>
+                Option3
+            </apex:outputLabel>
+            </apex:facet>
+            <script> twistSection(document.getElementById('img_{!$Component.op3}')); </script>
+            <span>Or without section items at all</span>
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection id="op4" columns="1">
+                        <apex:facet name="header">
+            
+            <apex:outputLabel onclick="document.getElementById('{!$Component.op4}').childNodes[0].childNodes[0].click();">
+            <script>twistSection(document.getElementById("{!$Component.op4}").childNodes[0].childNodes[0]);document.getElementById("{!$Component.op4}").childNodes[0].style.cssText = "cursor:pointer;" </script>
+                Option4
+            </apex:outputLabel>
+            </apex:facet>
+            <script> twistSection(document.getElementById('img_{!$Component.op4}')); </script>
+            <apex:pageBlockSectionItem >
+                <span style="text-align:left">Or still as 1 tag but left-aligned.</span>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    </apex:pageBlock>    
+</apex:page>

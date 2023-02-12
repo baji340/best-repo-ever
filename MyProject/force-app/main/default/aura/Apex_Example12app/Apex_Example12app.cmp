@@ -1,0 +1,11 @@
+<aura:component controller="Apex_Example2">
+    <aura:attribute type="string" name="empname" default="Test"/>
+	<div>
+        <lightning:input aura:id="lname" label="Enter lname"/>
+        <lightning:input aura:id="fname" label="Enter fname"/>
+        <br/>
+        <ui:outputText value="{!v.empname}"/>
+        <br/>
+        <lightning:button label="Submit" onclick="{!c.Showme}"/>
+    </div>
+</aura:component>

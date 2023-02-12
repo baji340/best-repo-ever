@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global">
+    <div> i am from Aura component</div>
+    <c:childLwcComp onmyfirstevent="{!c.handleLWCEvent}"></c:childLwcComp>
+</aura:component>

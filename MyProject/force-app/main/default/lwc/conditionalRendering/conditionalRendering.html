@@ -1,0 +1,10 @@
+<template>
+    <template if:true={fname}>
+        <h1>This is first name</h1>
+    </template>
+    <template if:true={lname}>
+        <h1>This is last name</h1>
+    </template>
+    <lightning-button label="Show firstname" onclick={showfname}></lightning-button>
+    <lightning-button label="Show lastname" onclick={showlname}></lightning-button>
+</template>

@@ -1,0 +1,15 @@
+<apex:page standardController="lead" extensions="customcloneLead">
+<apex:form >
+<apex:pageBlock title="Lead details">
+<apex:pageBlockSection title="My Content Section" columns="2">
+<apex:inputField value="{!lead.company}" />
+<apex:inputfield value="{!lead.firstname}"/>
+<apex:inputfield value="{!lead.lastname}"/>
+<apex:outputField value="{!lead.Email}"/>
+</apex:pageBlockSection>
+<apex:pageBlockButtons >
+<apex:commandButton action="{!clonelead}" value="save clone"/>
+</apex:pageBlockButtons>
+        </apex:pageBlock>
+</apex:form>
+</apex:page>

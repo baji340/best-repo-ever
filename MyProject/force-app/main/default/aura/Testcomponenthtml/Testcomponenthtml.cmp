@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	hellow world
+    <p class="paragraph">hellow world</p>
+    <div>
+        <p class="paragraph1"> This test is inside Div</p>
+    </div>
+    <div>
+        <div>
+            <p class="paragraph2"> This text is inside nested div</p>
+        </div>
+    </div>
+    <lightning:formattedText value="hellow world" /><br/>
+    <button>HTML</button>
+    <lightning:button variant="brand" label="lightning button"></lightning:button>
+</aura:component>

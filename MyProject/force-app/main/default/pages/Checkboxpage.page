@@ -1,0 +1,7 @@
+<apex:page controller="CheckboxValueC">
+    <apex:form >
+        <apex:inputCheckbox id="checkboxShowP" value="{!isChecked}">
+            <apex:actionSupport event="onchange" action="{!click}"/>
+        </apex:inputCheckbox>
+    </apex:form>
+</apex:page>

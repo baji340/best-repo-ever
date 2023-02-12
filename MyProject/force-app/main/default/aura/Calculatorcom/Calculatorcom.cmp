@@ -1,0 +1,14 @@
+<aura:component >
+    <aura:attribute name="value1" type="integer" access="public"/>
+    <aura:attribute name="value2" type="integer" access="public"/>
+    <aura:attribute name="ouput" type="integer" access="public"/>
+    <lightning:input type="number" name="input1" label="Enter a number" value="{!v.value1}"/>
+        <lightning:input type="number" name="input2" label="Enter a number" value="{!v.value2}"/>
+    <lightning:button label="adddata" onclick="{!c.doadd}"/> 
+    <lightning:button label="adddata" onclick="{!c.dosub}"/>
+    <lightning:button label="adddata" onclick="{!c.domul}"/> 
+    <lightning:button label="adddata" onclick="{!c.dodiv}"/> 
+    
+    
+
+</aura:component>

@@ -1,0 +1,12 @@
+<apex:page controller="Dml1" lightningstylesheets="true">
+    <apex:form >
+        <apex:commandButton value="save" action="{!create}"/>
+        <apex:inputField value="{!acc.name}"/>
+        <apex:inputField value="{!con.lastname}"/>
+        <apex:pageBlock title="Account creation">
+            <apex:pageBlockTable value="{!acc}" var="a">
+				<apex:column value="{!a.name}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>>
+</apex:page>

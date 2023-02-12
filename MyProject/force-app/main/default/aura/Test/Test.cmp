@@ -1,0 +1,26 @@
+<aura:component >
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem padding="around-large" size="6" smallDeviceSize="12" mediumDeviceSize="6">
+            AAA
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-large" size="6" smallDeviceSize="12" mediumDeviceSize="6" >
+            BBB
+        </lightning:layoutItem>
+    </lightning:layout  >
+        <lightning:layout multipleRows="true">
+        <lightning:layoutItem padding="around-large" size="6" smallDeviceSize="12" mediumDeviceSize="6">
+            ccc
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-large" size="6" smallDeviceSize="12" mediumDeviceSize="6" >
+            DDD
+        </lightning:layoutItem>
+    </lightning:layout>
+
+
+<div class="slds-grid slds-wrap">
+    <span class="slds-size_1-of-2 slds-max-small-size_1-of-1">AAA</span>
+    <span class="slds-size_1-of-2 slds-max-small-size_1-of-1">BBB</span>
+    <span class="slds-size_1-of-2 slds-max-small-size_1-of-1">CCC</span>
+    <span class="slds-size_1-of-2 slds-max-small-size_1-of-1">DDD</span>
+</div>
+</aura:component>

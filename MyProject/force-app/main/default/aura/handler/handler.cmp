@@ -1,0 +1,12 @@
+<aura:component> 
+ <aura:attribute name="notificationMsg" type="String"/>
+ <aura:handler name="componentEvent" event="c:componentEvent" action="{!c.receivesEvent}"/>
+ <c:notifier/> 
+  
+ 
+<div class="slds-align_absolute-center slds-m-top_medium">
+    <b>{!v.notificationMsg}</b> 
+ </div>
+ 
+ 
+</aura:component>

@@ -1,0 +1,24 @@
+<aura:component >
+    <!-- 
+    /**
+    * Webkul Software.
+    *
+    * @category  Webkul
+    * @author    Webkul
+    * @copyright Copyright (c) 2010-2016 Webkul Software Private Limited (https://webkul.com)
+    * @license   https://store.webkul.com/license.html
+    */
+    -->
+    <ltng:require scripts="{!$Resource.Fruits}"></ltng:require>
+    <aura:attribute name="externalList" type="Array" ></aura:attribute>
+    <div>
+        <p> Click on button to show the name of fruits...</p>
+        <lightning:button label="Show Fruits"
+                          variant="brand"
+                          onclick="{!c.getFruits}">
+        </lightning:button>
+        <aura:iteration items="{!v.externalList}" var="el">
+            <p> {!el}</p>
+        </aura:iteration>
+    </div>
+</aura:component>

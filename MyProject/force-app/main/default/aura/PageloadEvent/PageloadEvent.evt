@@ -1,0 +1,8 @@
+<aura:event type="COMPONENT">
+    <aura:attribute name="pageName" type="String"/>
+    <aura:attribute name="siteSectionL1" type="String"/>
+    <aura:attribute name="siteSectionL2" type="String"/>
+    <aura:attribute name="siteSectionL3" type="String"/>
+    <aura:attribute name="website" type="String"/>
+    <aura:attribute name="businessUnit" type="String"/>
+</aura:event>

@@ -1,0 +1,28 @@
+<apex:page controller="actocons" tabStyle="Account">
+
+    <script>
+
+    function showdata(object){ 
+          document.getElementById(object.id).childNodes[1].style.display == "block" ? document.getElementById(object.id).childNodes[1].style.display = "none" : document.getElementById(object.id).childNodes[1].style.display = "block"; 
+
+     }
+
+    </script>
+        <apex:pageBlock >
+
+            <apex:repeat value="{!acct}" var="a">
+
+                <apex:pageBlockSection id="section1" onclick="showdata(this);" title="{!a.name}" collapsible="false">
+
+                <apex:outputField value="{!a.Name}"/>
+                <apex:pageBlockTable value="{!a.Contacts}" var="c" id="j1">
+                    <apex:column value="{!c.id}" />
+                    <apex:column value="{!c.lastname}"/>
+                    <apex:column value="{!c.email}" />
+                </apex:pageBlockTable>  
+
+            </apex:pageBlockSection>
+
+            </apex:repeat>
+        </apex:pageBlock>
+    </apex:page>

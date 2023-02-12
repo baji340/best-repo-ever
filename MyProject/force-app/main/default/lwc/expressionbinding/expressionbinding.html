@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Welcome to Expression Binding" icon-name="utility:user">
+        <div>
+            <lightning-input type="text" name ="FullName" label="Enter full name" onchange={handleonchange}></lightning-input>
+            <lightning-input type="text" name ="Phone" label="Enter Phone" onchange={handleonchange}></lightning-input>
+            <lightning-input type="text" name ="Email" label="Enter Email" onchange={handleonchange}></lightning-input>
+        </div>
+        <div style="padding:10px">
+        <table border="1">
+            <tr>
+                <td>FullName:</td>
+                <td>{FullName}</td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td>{Phone}</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>{Email}</td>
+            </tr>
+        </table>
+    </div>
+    </lightning-card>
+</template>

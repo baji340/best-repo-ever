@@ -1,0 +1,49 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:actionOverride" access="global" controller="MyCases" >
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="parentId" type="String"/>
+    <aura:attribute name="hasAccount" type="boolean" default="false" />
+    <aura:attribute name ="AccountName" type="String" />
+    <aura:attribute name="rating" type="String" />
+   
+    <div aura:id="editDialog" role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <h2 class="slds-text-heading--medium">New Record</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium slds-grid slds-wrap ">
+                
+                <lightning:recordEditForm aura:id="form"
+                                          recordId="{!v.recordId}"
+                                          objectApiName="Account"     
+                                          onload="{!c.handleOnload}"
+                                          onsubmit="{!c.handleOnSubmit}"
+                                          onsuccess="{!c.handleOnSuccess}"
+                                          onerror="{!c.handleOnError}"
+                                          class="slds-card__body_inner">
+                    
+                    <lightning:messages/>
+                    <lightning:inputField fieldName="Subject"/>
+                    
+                    <div onchange="{!c.checkAccount}">
+                        <lightning:inputField fieldName="AccountId" aura:id="accountLookup"/>
+                    </div>
+                    <lightning:inputField fieldName="Status" aura:id="departmentText"/>
+                    <lightning:inputField fieldName="Type" aura:id="departmentText"/>
+                    <lightning:inputField fieldName="Origin" aura:id="departmentText"/>
+                    <aura:if isTrue="{!v.hasAccount}">
+                        <lightning:card iconName="standard:account" >
+                            <lightning:input type="Text" value="{!v.AccountName}" aura:id="accountName"/>
+                            <lightning:input type="Text" value="{!v.rating}" aura:id="accountName"/>
+                        </lightning:card>
+                    </aura:if>
+                    
+                    
+                    <div class="slds-m-top_medium">
+                        <lightning:button variant="brand" label="Submit" type="submit" />
+                    </div>
+                </lightning:recordEditForm>
+            </div>
+        </div>
+        </div>
+        <div aura:id="overlay" class="slds-backdrop slds-backdrop--open"></div>
+</aura:component>

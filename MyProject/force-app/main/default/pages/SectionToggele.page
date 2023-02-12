@@ -1,0 +1,57 @@
+<apex:page standardcontroller="account" recordsetvar="accounts"
+    showHeader="false">
+    <apex:form >
+        <apex:pageblock >
+            <!--<img src="/s.gif" alt="Hide Section - List of Accounts" class="hideListButton" id="imgg" name="List of Accounts" onclick="closethis();" style="cursor:pointer;" title="Hide Section - List of Accounts"/>-->
+            <apex:pageBlockSection title="AccountsList" collapsible="false" onclick="closethis();">
+            <apex:outputPanel layout="block" id="op"  title="AccountsList">
+            <script>
+            var opid = document.getElementById('{!$Component.op}');
+            opid.style.display = 'none';
+            </script>
+                <apex:pageblocktable value="{!accounts}" var="a">
+                    <apex:column >
+                        {!a.name}
+                        <apex:actionSupport event="onclick" status="act" reRender="op">
+                            <apex:param name="aid" value="{!a.id}" />
+                        </apex:actionSupport>
+                    </apex:column>
+                </apex:pageblocktable>
+           </apex:outputPanel>
+                </apex:pageBlockSection>
+        </apex:pageblock>
+        <apex:pageBlock >
+          <img src="/s.gif" alt="Hide Section - List of Accounts" class="hideListButton" id="imgg" name="List of Accounts" onclick="closethis1();" style="cursor:pointer;" title="Hide Section - List of Accounts"/>
+            <apex:outputPanel layout="block" id="op1" > 
+            <script>
+            var opid1 = document.getElementById('{!$Component.op1}');
+            opid1.style.display = 'none';
+            </script>
+                <h1>
+                    hide Text
+                </h1>
+            </apex:outputPanel>
+        </apex:pageBlock>
+        <apex:actionStatus starttext="Loading......" id="act" />
+        <apex:outputpanel id="op" title="Account Detail Page">
+            <apex:detail subject="{!$CurrentPage.parameters.aid}"
+                relatedlist="false" />
+        </apex:outputpanel>
+    </apex:form>
+    <script>
+    function closethis(){
+        if(opid.style.display != 'inline')
+            opid.style.display = 'inline';    
+        else
+            opid.style.display = 'none'
+    }
+    </script>
+    <script>
+        function closethis1(){
+        if(opid1.style.display != 'inline')
+            opid1.style.display = 'inline';    
+        else
+            opid1.style.display = 'none'
+    }
+    </script>
+</apex:page>

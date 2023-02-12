@@ -1,0 +1,6 @@
+<apex:page standardController="user" lightningstylesheets="true">
+    <apex:form >
+         {! $User.FirstName}
+
+    </apex:form>
+</apex:page>

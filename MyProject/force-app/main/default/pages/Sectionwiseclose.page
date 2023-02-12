@@ -1,0 +1,24 @@
+<apex:page >
+    <apex:pageBlock id="block1">
+        <apex:pageBlockSection id="section1" columns="2" collapsible="true" title="Title 1" onclick="expandCollapse2(); return false;">
+            Example Area 1
+            Example Area 1
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection id="section2" columns="2" collapsible="true" title="Title 2" onclick="expandCollapse1(); return false;">
+            Example Area 2
+            Example Area 2
+        </apex:pageBlockSection>
+        
+        <script>
+        	twistSection(document.getElementById('{!$Component.block1.section2}').getElementsByTagName('img')[0])
+        	function expandCollapse1(){
+        		twistSection(document.getElementById('{!$Component.block1.section1}').getElementsByTagName('img')[0])
+            }
+        	function expandCollapse2(){
+            	twistSection(document.getElementById('{!$Component.block1.section2}').getElementsByTagName('img')[0])
+            }
+        </script>
+        
+    </apex:pageBlock>
+</apex:page>

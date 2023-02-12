@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Search account" >
+        <lightning-layout horizontal-align="around-medium">
+                <lightning-input type="search" onchange={searchrecord} label="search">
+
+                </lightning-input>
+                <template if:true={accounts}>
+                    <template for:each={accounts} for:item="acc">
+                        <li key={acc.id}></li>
+                            {acc.name}
+                            {acc.industry}
+                    
+                    </template>
+                </template>
+        </lightning-layout>
+    </lightning-card>
+</template>

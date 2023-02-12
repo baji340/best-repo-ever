@@ -1,0 +1,15 @@
+<template>
+    <div class="slds-m-around_medium">
+        <h1 class="slds-text-heading_small">Input Number Example</h1>
+        <p class="slds-text-body_regular">The following examples show various ways to create an input number component.</p>
+    </div>
+    <div slot="Footer">
+        <lightning-badge label={result} ></lightning-badge>
+    </div>
+    <div>
+        <h2>Basic Calculator</h2>
+        <lightning-input type="number" name="fnumber" label="Enter a number"  value={firstnumber} onchange={handlechange}></lightning-input>
+        <lightning-input type="number" name="snumber" label="Enter a number" value={secondnumber} onchange={handlechange}></lightning-input>
+        
+    </div>
+</template>

@@ -1,0 +1,16 @@
+<aura:component >
+    <aura:attribute name="input1" type="integer" description="For First Input"/>
+    <aura:attribute name="input2" type="integer" description="For First Input"/>
+    <aura:attribute name="outputvalue"  type="integer"/>
+    <div>
+        <lightning:input label="Enter First Value" type="number" value="{!v.input1}"/>
+        <lightning:input label="Enter Second Value" type="number" value="{!v.input2}"/>
+    </div>
+    The OutPut is :{!v.outputvalue}
+    <div>
+        <lightning:button variant="base" value="Component Methods" label="Add" onclick="{!c.doAdd}"/>
+        <lightning:button variant="base" value="Component Methods" label="Mul" onclick="{!c.doMul}"/>
+        <lightning:button variant="base" value="Component Methods" label="Div" onclick="{!c.doDiv}"/>
+        <lightning:button variant="base" value="Component Methods" label="Sub" onclick="{!c.doSub}"/>
+    </div>
+</aura:component>

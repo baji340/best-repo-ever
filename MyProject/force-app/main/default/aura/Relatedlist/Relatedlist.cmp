@@ -1,0 +1,66 @@
+<aura:component controller="Relatedlistcontroller" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId">
+    <aura:attribute name="colLength" type="Integer" />
+	<aura:attribute name="recordId" type="String" />
+	<aura:attribute name="labelPlural" type="String" />
+	<aura:attribute name="showSpinner" type="String" default="false"/>
+	
+    <aura:attribute type="String" name="sortField" />
+    <aura:attribute type="Boolean" name="sortAsc" />
+    
+	<aura:attribute name="records" type="List" />
+    <aura:attribute name="unfilteredData" type="List"/>
+	<aura:attribute name="mapFields" type="Map" />
+	<aura:attribute name="ftMap" type="Object" />
+	<aura:attribute name="fields" type="List" />
+	<aura:attribute name="isChild" type="boolean" default="false"/>
+	<aura:attribute name="RelatedModel" type="Map" />
+    <aura:attribute name="allData" type="List"/>
+    <aura:attribute name="currentPageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="20"/>
+    <aura:attribute name="totalPages" type="Integer" default="0"/>
+    <aura:attribute name="pageStartNo" type="Integer" default="0"/>
+    <aura:attribute name="pageEndNo" type="Integer" default="0"/>
+    <aura:attribute name="pageList" type="List"/>
+    
+	<aura:attribute name="ExNameFilter" type="String" />  
+    <aura:attribute name="TypeNameFilter" type="String" />  
+    <aura:attribute name="ExStartDateFilter" type="String" />  
+    <aura:attribute name="RationaleFilter" type="String" /> 
+    <aura:attribute name="StatusFilter" type="String" />  
+    	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	
+	<aura:if isTrue="{!v.showSpinner}">
+		<div>
+			<lightning:spinner alternativeText="Loading" size="large" />
+		</div>
+	</aura:if>
+    	        	<aura:if isTrue="{!equals(v.RelatedModel.showPagenation,'Yes')}">
+	                <table style="">
+                        
+	                	<tr>
+                           <!-- <td>
+                                 <aura:if isTrue="{!v.RelatedModel.sObjectName=='Exclusion__c'}">
+                                     <lightning:input name="x" value="{!v.filter}" label="Filter" placeholder="Search Exclusions..."/> 
+                                 </aura:if>
+                             </td> 
+                            -->
+	                		<td style="vertical-align: bottom;width:50%;">
+	                			 <b> {!'Showing '+v.pageStartNo+' to '+v.pageEndNo+' of '+v.allData.length+' records.'} </b>
+	                		</td>
+	                		<td style="text-align:right;vertical-align: bottom;">
+	                			<span style="padding-right:10px;"><b>Page Size:</b></span>
+	                		</td>
+	                		<td>
+	                			<lightning:select name="pageOptions" value="{!v.pageSize}"  
+				                     	aura:id="dateFilter" onchange="{!c.onPageSize}" >
+								        <option value="10">10</option>
+								        <option value="20">20</option>
+								        <option value="50">50</option>
+								        <option value="100">100</option>
+								        <option value="200">200</option>
+							    </lightning:select>
+	                		</td>
+	                	</tr>
+	                </table>
+                </aura:if>
+</aura:component>

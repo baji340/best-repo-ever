@@ -1,0 +1,8 @@
+<aura:component>
+    <aura:attribute name="truthy" type="boolean"/>
+    
+    <lightning:button label="button" name="button" onclick="{!c.jsload}"/>
+    <aura:if isTrue="{!v.truthy}">
+    <ltng:require scripts="{!$Resource.Button}"/>
+    </aura:if>
+</aura:component>

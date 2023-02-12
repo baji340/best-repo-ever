@@ -1,0 +1,6 @@
+<!--Child.cmp-->
+<aura:component >
+    <aura:registerEvent name="sampleCmpEvent" type="c:SampleComponentEvent" />
+    <aura:handler name="init" value="{!this}" action="{!c.childComponentEvent}" />
+    <!--<lightning:button label="Click to fire the event" variant="brand" onclick="{!c.childComponentEvent}"/>-->
+</aura:component>

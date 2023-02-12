@@ -1,0 +1,6 @@
+<aura:component >
+    <aura:attribute name="Empname" type="string"/>
+    <aura:attribute name="ID" type="integer"/>
+    Name:{!v.Empname}<br/>
+    ID:{!v.ID}   
+</aura:component>

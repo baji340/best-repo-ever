@@ -1,0 +1,8 @@
+<aura:component >
+    <aura:attribute name="pageName" type="String"/> 
+    <aura:handler name="PageloadEvent" event="c:PageloadEvent" action="{!c.parentComponentEvent}"/>
+    <div class="slds-m-around_xx-large">
+        <c:eventNotifier/> 
+        <p>{!v.pageName}</p> 
+    </div>
+</aura:component>

@@ -1,0 +1,19 @@
+<template>
+    <template if:true={newsarticles.data}>
+        <div class="slds-size_3-of-4">
+            <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small container">News Widget
+                <lightning-carousel class="clip" disable-auto-scroll="true">
+                   
+                    <template for:each={newsarticles.data} for:item="rec" for:index="index">
+                        <lightning-carousel-image key={rec.title} src={rec.urlToImage} header={rec.title}
+                            description={rec.description} alternative-text="First card accessible description."
+                            href={rec.url}>
+                            
+                        </lightning-carousel-image>
+                    </template>
+                </lightning-carousel>
+            </div>
+        </div>
+        <c-news-app newsarticles={newsarticles}></c-news-app>
+    </template>
+</template>

@@ -1,0 +1,13 @@
+<apex:page controller="controllerSample">
+    <apex:form >
+        <apex:outputPanel id="renderTarget">
+    <script>
+        if ('{!returnValue}' != 'null') {
+            alert('{!returnValue}');
+        }
+    </script>
+
+    <apex:commandButton action="{!action}" value="Do It" rerender="renderTarget"/>
+</apex:outputPanel>
+    </apex:form>
+</apex:page>

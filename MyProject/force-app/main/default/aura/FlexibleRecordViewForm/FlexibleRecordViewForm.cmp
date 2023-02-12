@@ -1,0 +1,25 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,flexipage:availableForAllPageTypes"
+                access="global" controller="FlexiLightningTableController">
+
+    <aura:attribute name="objectName" type="String"/>
+    <aura:attribute name="columnsName" type="String"/>
+    <aura:attribute name="columnList" type="List"/>
+
+    <!-- DO NOT HARDCODE ID -->
+    <!--<aura:attribute name="recordId" type="String" default="0012v00002WY0LLAA1"/>-->
+    <aura:handler name="init" value="{!this}" action="{!c.setColumns}" />
+
+    <lightning:card title="Flexible View Form - Design Tokens" variant="base">
+
+        <lightning:recordEditForm objectApiName="Campaign_Measure__c" >
+			<lightning:layout multipleRows="true">
+            <aura:iteration items="{!v.columnList}" var="col">
+            <lightning:layoutItem padding="around-large" size="6" smallDeviceSize="12" mediumDeviceSize="6" >
+                <lightning:inputField fieldName="{!col.fieldName}" />
+            </lightning:layoutItem>
+            </aura:iteration>
+           </lightning:layout>
+        </lightning:recordEditForm>
+
+    </lightning:card>
+</aura:component>

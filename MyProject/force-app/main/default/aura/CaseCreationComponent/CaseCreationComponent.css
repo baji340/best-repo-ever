@@ -1,0 +1,7 @@
+.THIS section.slds-modal {
+
+position: fixed !important;
+
+z-index: 9001 !important;
+
+}

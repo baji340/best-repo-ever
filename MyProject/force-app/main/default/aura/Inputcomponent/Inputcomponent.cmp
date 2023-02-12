@@ -1,0 +1,8 @@
+<aura:component >
+        <lightning:input type="number" name="A" lable="A" aura:id="A"/>
+        <lightning:input type="number" name="B" lable="A" aura:id="B"/>
+        <lightning:input type="number" name="C"	lable="C" aura:id="C"/>
+        <lightning:button variant="base" label="Add" title="Add" onclick="{! c.CAdd }"/>
+        <lightning:button variant="base" label="Mul" title="Mull" onclick="{! c.CMul }"/>
+        <lightning:button variant="base" label="Reset" title="Reset" onclick="{! c.Reset }"/>
+</aura:component>

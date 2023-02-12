@@ -1,0 +1,10 @@
+<aura:component >
+    <aura:attribute name="whom" type="string" default="SFDCpanther" access="public"/>
+    <aura:attribute name="age" type="integer" default="24" access="public"/>
+    <aura:attribute name="colors" type="List" default="['red','blue','green']" access ="private"/>
+    
+    Welcome {!v.whom},{!v.age},{!v.colors[0]}<br/>
+    
+    <lightning:button  label="components methods" onclick="{! c.handleClick }" />
+    
+</aura:component>

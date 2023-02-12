@@ -1,0 +1,9 @@
+<apex:page controller="example12" lightningstylesheets="true">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!acc}" var="v">
+                <apex:column value="{!v.name}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

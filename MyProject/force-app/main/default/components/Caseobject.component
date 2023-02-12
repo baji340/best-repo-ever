@@ -1,0 +1,10 @@
+<apex:component controller="Customdataclass">
+    <apex:form >
+        <apex:pageBlock title="Network">
+            <apex:selectList value="{!selectedname}">
+                <apex:selectOptions value="{!lstnamesel}">
+                </apex:selectOptions>
+            </apex:selectList>
+        </apex:pageBlock>
+    </apex:form>
+</apex:component>

@@ -1,0 +1,15 @@
+<template>
+    <div>
+        <template if:true={ranger} >
+            <lightning-record-view-form
+                    record-id={ranger}
+                    object-api-name="Account">
+                    <div class="slds-popover slds-nubbin_left potato slds-box" style={boxClass}>
+                    <lightning-output-field field-name="Name">
+                    </lightning-output-field>
+
+                    </div>
+            </lightning-record-view-form>
+        </template>
+    </div>
+</template>

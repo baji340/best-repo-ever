@@ -1,0 +1,35 @@
+<template>
+    <lightning-card>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+              <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                  <div class="slds-truncate" title="Key">Key</div>
+                </th>
+                <th class="" scope="col">
+                  <div class="slds-truncate" title="Value">Value</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={mapkeyvaluestore} for:item="mapkey" for:index="index">
+                <tr key={mapkey.key}>
+                    <th scope="col">
+                     {mapkey.key}
+                    </th>
+                    <th scope="col">
+                    <template for:each={mapkey.value} for:item="mapval" for:index="index1">
+                      <div key={mapval}>
+                     
+                        {mapval}
+                     
+                    </div>
+                
+                    </template>
+                  </th>
+                </tr>
+            </template>
+        </tbody>
+        </table>
+    </lightning-card>
+</template>

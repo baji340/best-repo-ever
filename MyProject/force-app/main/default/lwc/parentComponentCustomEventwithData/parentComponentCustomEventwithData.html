@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="I am parent " icon-name="utility:user">
+        <div class="slds-var-m-around_medium">
+            The clicks count : {count}
+            <c-child-Component-Custom-Eventwith-Data onincreasecount={handleEventChange}>
+
+            </c-child-Component-Custom-Eventwith-Data >
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,7 @@
+<apex:page standardController="Contact" lightningstylesheets="true">
+    <apex:form >
+        First Name : {!contact.FirstName}
+        Last name : {!contact.lastname}
+        contact owner email:{!contact.owner.email}
+</apex:form>>
+</apex:page>

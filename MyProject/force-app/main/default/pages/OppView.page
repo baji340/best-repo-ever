@@ -1,0 +1,8 @@
+<apex:page standardController="opportunity" lightningstylesheets="true">
+    <apex:form >
+        <apex:outputField value="{!opportunity.name}"/>
+        <apex:outputField value="{!opportunity.Amount}"/>
+        <apex:outputField value="{!opportunity.closedate}"/>
+        <apex:outputField value="{!opportunity.account.name}"/>
+    </apex:form>
+</apex:page>

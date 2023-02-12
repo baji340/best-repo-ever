@@ -1,0 +1,18 @@
+<apex:page controller="accountandcontact" lightningstylesheets="true">
+    <apex:form >
+        <apex:pageBlock title="Account details">
+            <apex:inputText value="{!name}"/>
+            <apex:inputText value="{!industry}"/>
+            <apex:commandButton value="delete" action="{!del}"/>
+            <apex:commandButton value="Update" action="{!change}"/>
+            <apex:commandButton value="Add" action="{!add}"/>
+            <apex:pageBlockTable value="{!wrap}" var="a">
+                <apex:column >
+                    <apex:inputCheckbox value="{!a.flag}"/>
+                </apex:column>
+                <apex:column value="{!a.acc.name}"/>
+                <apex:column value="{!a.acc.industry}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

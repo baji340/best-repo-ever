@@ -1,0 +1,29 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:appHostable">
+
+<aura:attribute name="disabled" type="Boolean" default="false" />
+<aura:attribute name="recordId" type="String" access="public" />
+<aura:attribute name="reloadForm" type="boolean" default="true" />
+<lightning:card iconName="action:new_child_case" title="Create Acc">
+<lightning:recordEditForm aura:id="form" objectApiName="Account"
+onsubmit="{!c.handleSubmit}"
+onsuccess="{!c.clear}"
+onerror="{!c.handleError}">
+
+<div class="slds-p-horizontal_small">
+<lightning:messages />
+<aura:if isTrue="{!v.reloadForm}">
+<lightning:inputField aura:id="accField" fieldName="Name" required="true"/>
+<lightning:inputField aura:id="accField" fieldName="Email__c" required="true"/>
+<lightning:inputField aura:id="accField" fieldName="Match_Billing_Address__c" required="true"/>
+<lightning:inputField aura:id="accField" fieldName="SLA__c" required="true"/>
+<lightning:inputField aura:id="accField" fieldName="SLAExpirationDate__c" required="true"/>
+</aura:if>
+<div class="slds-p-vertical_small">
+<lightning:button disabled="{!v.disabled}" variant="brand" type="submit" name="save" label="Save" />
+</div>
+</div>
+</lightning:recordEditForm>
+
+</lightning:card>
+
+</aura:component>

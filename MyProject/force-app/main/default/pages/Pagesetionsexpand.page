@@ -1,0 +1,30 @@
+<apex:page controller="actocons" tabStyle="Account">
+    <apex:pageBlock >
+        <apex:repeat value="{!acct}" var="a">
+            <apex:pageBlockSection id="section1" title="{!a.name}" onclick="document.getElementById('{!$Component.section1}').childNodes[0].childNodes[0].click();">
+            <script>twistSection(document.getElementById("{!$Component.section1}").childNodes[0].childNodes[0]);document.getElementById("{!$Component.section1}").childNodes[0].style.cssText = "cursor:pointer;" </script>
+            <apex:outputField value="{!a.Name}"/>
+            <apex:pageBlockTable value="{!a.Contacts}" var="c" id="j1">
+                <apex:column value="{!c.id}" />
+                <apex:column value="{!c.lastname}"/>
+                <apex:column value="{!c.email}" />
+            </apex:pageBlockTable>   
+        </apex:pageBlockSection>
+        </apex:repeat>
+    </apex:pageBlock>
+<script>
+    twistSection = (function() {
+        var cached_function = twistSection;
+
+        return function(twisty, sectionId) {
+            cached_function.apply(this, arguments); // use .apply() to call the original twistSection function provided by Salesforce
+            if (event.stopPropagation) {
+                event.stopPropagation();
+            } else {
+                event.cancelBubble = true;
+            }
+        };
+    }());
+
+</script>    
+</apex:page>

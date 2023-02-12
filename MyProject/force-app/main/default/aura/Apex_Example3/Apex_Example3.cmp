@@ -1,0 +1,11 @@
+<aura:component controller="Apex_Example3" >
+	<div>
+        <lightning:input label="Amount" aura:id="Amount"/>
+        <lightning:input label="Rate" aura:id="Rate"/>
+        <lightning:input label="Year" aura:id="Year"/>
+        <br/><br/>
+        <lightning:input label="intrest" aura:id="intrest"/>
+        <br/><br/>
+        <lightning:button label="calculate" onclick="{!c.invoke}"/>
+    </div>
+</aura:component>

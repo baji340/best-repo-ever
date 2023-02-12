@@ -1,0 +1,8 @@
+<apex:page standardController="contact" lightningstylesheets="true">
+    <apex:form >
+        <apex:inputField value="{!contact.firstname}"/>
+        <apex:inputField value="{!contact.lastname}"/>
+        <apex:inputField value="{!contact.email}"/>
+        <apex:commandButton value="sve" action="{!save}"/>
+    </apex:form>
+</apex:page>

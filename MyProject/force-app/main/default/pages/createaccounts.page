@@ -1,0 +1,18 @@
+<apex:page controller="Listusage" tabStyle="Account"  lightningstylesheets="true">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Account details">
+                <apex:outputText >Name:
+                <apex:inputText title="Name" value="{!name}" />
+                    </apex:outputText>
+                <apex:outputText >Phone:
+                <apex:inputText title="Phone" value="{!phone}"/>
+                </apex:outputText>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="Bottom">
+                <apex:commandButton value="Save" action="{!savedata}"/>
+                <!--<apex:commandButton value="reset" action="{!resetdata}"/>-->
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

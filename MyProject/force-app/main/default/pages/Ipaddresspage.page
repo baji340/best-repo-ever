@@ -1,0 +1,15 @@
+<apex:page controller="ipaddress" lightningstylesheets="true">
+    <apex:form >
+        <apex:inputText value="{!ipaddres}"/>
+		<apex:commandButton value="search" action="{!callme}"/> 
+        <apex:pageBlock title="Ipaddress details" rendered="{! !Isnull(result)}">
+            <apex:pageBlockSection >
+            <apex:outputLabel value="{!result}"/>
+                </apex:pageBlockSection>
+            <apex:pageBlockTable value="{!resmap}" var="a">
+                <apex:column value="{!a}"/>
+                <apex:column value="{!resmap[a]}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

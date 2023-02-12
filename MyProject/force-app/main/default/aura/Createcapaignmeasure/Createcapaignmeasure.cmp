@@ -1,0 +1,97 @@
+<aura:component implements="lightning:isUrlAddressable,force:lightningQuickAction,lightning:actionOverride" access="global" controller="CampaignMeasureController">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="options" type="List" access="PRIVATE"/>
+    <aura:attribute name="pid" type="String"/>
+    <aura:attribute name="openmodal" type="boolean" default="True"/>
+    <aura:attribute name="reloadform" type="boolean" default="true"/>
+    <aura:attribute name="MeasureDomain" type="String" default="false" />
+    <aura:attribute name="MeasureName" type="String" default=""/>
+    <aura:attribute name="parentId" type="String"/>
+    <aura:attribute name="Campaginstate" type="String"/>
+    <aura:attribute name="objectName" type="String"/>
+    <aura:attribute name="columnsName" type="String"/>
+    <aura:attribute name="columnList" type="List"/>
+	<aura:handler name="init" value="{!this}" action="{!c.handleOnload}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.pageReference}"
+                  action="{!c.onPageReferenceChanged}" />
+    <lightning:notificationsLibrary aura:id="notificationsLibrary"/>
+    
+    <lightning:card iconName="standard:campaign" 
+                    title="{! (v.recordId == null ? 'New ' : 'Edit ') + 'Campaign Measure' }">
+   <aura:if isTrue="{!v.openmodal}"> 
+        <div class="demo-only" style="height: 640px;">
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick="{!c.close}">
+                               <lightning:buttonIcon iconName="utility:close"  variant="bare-inverse" title="Close" alternativeText="Close window"/>
+                         
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">New Campaign Measure</h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+        <lightning:recordEditForm aura:id="form"
+                                  recordId="{!v.recordId}"
+                                  objectApiName="Campaign_Measure__c"     
+                                  onload="{!c.handleOnload}"
+                                  onsubmit="{!c.handleOnSubmit}"
+                                  onsuccess="{!c.handleOnSuccess}"
+                                  class="slds-card__body_inner">
+            
+            <lightning:messages/>
+            <div class="slds-col slds-size_1-of-1">
+            <lightning:card>
+            <h2 class="slds-text-heading_small">Select a Measure</h2>
+            <lightning:inputField fieldName="Campaign__c" value="{!v.parentId}" aura:id="campaignidval" disabled="true"/>
+            <!--<lightning:inputField fieldName="State__c" value="{!v.Campaginstate}" disabled="false"/>-->
+           <lightning:select name="colorId" label="State:" aura:id="colorId">
+                <aura:iteration items="{!v.options}" var="option">
+                    <option text="{!option}"/>
+                </aura:iteration>
+            </lightning:select>   
+            <div onchange="{!c.checkMesure}">
+            <lightning:inputField fieldName="Measures__c" aura:id="MesureLookup" />
+             </div>
+            <aura:if isTrue="{!v.MeasureName != ''}">
+          	<lightning:card  title="Prior Year Compliance">
+                <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2">
+				<lightning:inputField fieldName="PYR_Compliance__c" aura:id="PYCText"/>
+                </div>
+                </div>
+            </lightning:card>
+             </aura:if>       
+ 
+            </lightning:card>
+ 
+
+            </div>
+            <aura:if isTrue="{!v.MeasureName != ''}">
+            <lightning:card title="Med Measures">
+            <lightning:layout multipleRows="true">
+            <aura:iteration items="{!v.columnList}" var="col">
+            <lightning:layoutItem padding="around-small" size="6" smallDeviceSize="12" mediumDeviceSize="6" >
+                <lightning:inputField fieldName="{!col.fieldName}" />
+            </lightning:layoutItem>
+            </aura:iteration>
+           </lightning:layout>
+           </lightning:card>
+            </aura:if>
+            <div class="slds-m-top_medium slds-text-align_center">
+                <lightning:button variant="brand" label="Save" type="submit"/>
+            </div>
+          
+        </lightning:recordEditForm>
+       </div>
+        </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+        </aura:if>
+    </lightning:card>
+     
+    
+  
+</aura:component>

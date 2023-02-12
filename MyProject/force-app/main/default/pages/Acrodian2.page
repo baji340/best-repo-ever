@@ -1,0 +1,36 @@
+<apex:page standardController="Account" showHeader="true" sidebar="true">
+    <apex:form id="apForm">
+        <apex:pageBlock id="accountPlanEdit" title="test">
+                   <script>
+    twistSection = (function() {
+        var cached_function = twistSection;
+
+        return function(twisty, sectionId) {
+            cached_function.apply(this, arguments); 
+            if (event.stopPropagation) {
+                event.stopPropagation();
+            } else {
+                event.cancelBubble = true;
+            }
+        };
+    }());
+
+</script> 
+            <apex:pageBlockSection id="globalAddress" title="sectiontest" onclick="document.getElementById('{!$Component.globalAddress}').childNodes[0].childNodes[0].click();" collapsible="false">
+            <script>twistSection(document.getElementById("{!$Component.globalAddress}").childNodes[0].childNodes[0]);document.getElementById("{!$Component.checkRequests}").childNodes[0].style.cssText = "cursor:pointer;" </script>
+            <script>
+            twistSection(document.getElementById('{!$Component.accountPlanEdit.globalAddress}').getElementsByTagName('img')[0])
+            </script>
+                <apex:facet name="header"><sectionformat><h1 id="pagetitle">
+                    
+                    Search - Info </h1></sectionformat></apex:facet>
+                <apex:inputfield value="{!Account.Name}" id="globalHQCity" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <script type="text/javascript">
+        var GHCity = document.getElementsByTagName("h1").innerhtml;
+        var GHCity1 = document.getElementById('{!$Component.apForm.accountPlanEdit.globalAddress.globalHQCity}').value;
+        alert(GHCity);
+    </script>
+</apex:page>

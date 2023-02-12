@@ -1,0 +1,34 @@
+<apex:page >
+    <script>
+        function show(obj)
+        {
+            if(document.getElementById(obj).style.display == 'none')
+            {
+                document.getElementById(obj).style.display = 'block';
+            }
+            else
+                document.getElementById(obj).style.display = 'none';
+        }
+    </script>
+    
+    <div>
+        <a href="javascript:;" onclick="show(this.nextSibling.nextSibling.id);">Show/Hide Text</a>
+        <div id="expand">
+          <script>
+                document.getElementById("expand").style.display = 'none';
+          </script>
+            This is an example for expandible and collapsible sections using JS
+        </div>
+    </div>
+    <br/>
+    <div>
+        <a href="javascript:;" onclick="show(this.nextSibling.nextSibling.id);">Show/Hide Text1</a>
+        <div id="expand1">
+          <script>
+                document.getElementById("expand1").style.display = 'none';
+          </script>
+            This is an example for expandible and collapsible sections using JS
+        </div>
+    </div>
+
+</apex:page>

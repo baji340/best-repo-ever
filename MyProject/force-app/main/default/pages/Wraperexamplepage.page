@@ -1,0 +1,14 @@
+<apex:page controller="wexample" lightningstylesheets="true">
+    <apex:form >
+        <apex:pageBlock title="Account creation">
+            
+			<apex:pageBlockSection title="Pageblock">
+                <apex:pageBlockTable value="{!wacc}" var="w" id="one">
+                    <apex:column value="{!w.acc.name}"/>
+                    <apex:column value="{!w.acc.phone}"/>
+                    <apex:column value="{!w.check}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

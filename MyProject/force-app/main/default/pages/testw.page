@@ -1,0 +1,49 @@
+<apex:page id="page1">
+  <apex:form id="form1">
+      <apex:pageBlock id="block1">
+          <apex:pageBlockSection id="one" title="ssssssss">
+          <apex:pageBlockSectionItem >
+          vvv
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >
+              sss
+              </apex:pageBlockSectionItem>
+          </apex:pageBlockSection>
+          
+          <apex:pageBlockSection id="xxxxx" showHeader="true" title="zyzzyzz" columns="2" collapsible="true">
+              <apex:pageBlockSectionItem >
+                  aaaa
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >
+                  bbb
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >
+                  cccc
+              </apex:pageBlockSectionItem>
+          </apex:pageBlockSection>
+
+                <script language="javascript">
+                function addLoadEvent(func) {
+                  var oldonload = window.onload;
+                  if (typeof window.onload != 'function') {
+                    window.onload = func;
+                  } else {
+                    window.onload = function() {
+                      if (oldonload) {
+                        oldonload();
+                      }
+                      func();
+                    }
+                  }
+                }
+                
+                function dotest() {
+                 twistSection(document.getElementById('page1:form1:block1:one').childNodes[0].childNodes[0]);
+                 twistSection(document.getElementById('page1:form1:block1:xxxxx').childNodes[0].childNodes[0]);
+                }
+                
+                addLoadEvent(dotest);
+                </script>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

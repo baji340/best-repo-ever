@@ -1,0 +1,8 @@
+<aura:component >
+    <aura:attribute name="recordid" type="string"/>
+    <lightning:recordForm
+        recordId="{!v.recordid}"
+        objectApiName="Contact"
+        layoutType="Full"
+        mode="view" />
+</aura:component>

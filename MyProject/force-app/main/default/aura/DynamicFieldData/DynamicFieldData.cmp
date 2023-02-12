@@ -1,0 +1,25 @@
+<!-- 
+	Vasu Takasi || 	US1413250: SPIKE/POV - Redesign Account Detail Page 
+ -->
+<aura:component>
+	<aura:attribute name="record" type="Object" />
+	<aura:attribute name="fieldName" type="String" />
+	<aura:attribute name="fieldValue" type="String" />
+	
+	<aura:attribute name="fieldsMap" type="Map" />
+	<aura:attribute name="sObjectName" type="String" />
+	<aura:attribute name="fieldType" type="String" />
+	<aura:attribute name="parentId" type="String" />
+	
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+	
+	<aura:if isTrue="{!v.fieldType == 'REFERENCE'}">
+		<ui:outputURL aura:id="input-00" label="{!v.fieldValue}" value="{!'/'+v.parentId}" target="_blank" />
+		
+		<aura:set attribute="else">
+            <!--<div class="slds-truncate" title="{!v.fieldValue}"><ui:outputText value="{!v.fieldValue}" class="slds-truncate"/></div>-->
+            <ui:outputText value="{!v.fieldValue}" />
+			
+		</aura:set>
+	</aura:if>
+</aura:component>

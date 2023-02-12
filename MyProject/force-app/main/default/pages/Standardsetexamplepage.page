@@ -1,0 +1,24 @@
+<apex:page controller="standarsetexample" lightningstylesheets="true">
+<apex:form >
+<apex:pageblock title="example" id="pb">
+<apex:pageBlockButtons location="bottom">
+<apex:commandButton value="Previous" action="{!controller.previous}" reRender="pb"
+rendered="{! controller.hasPrevious}" />
+<apex:commandButton value="first" action="{!controller.First}" reRender="pb"
+rendered="{! controller.hasPrevious}" />
+<apex:commandButton value="Next" action="{!controller.next}" reRender="pb"
+rendered="{! controller.hasNext}" />
+<apex:commandButton value="Last" action="{!controller.last}" reRender="pb"
+rendered="{! controller.hasNext}" />
+</apex:pageBlockButtons>
+<apex:pageblocktable value="{!opty}" var="a">
+<apex:column value="{!a.name}"/>
+<apex:column value="{!a.stagename}"/>
+<apex:column value="{!a.amount}"/>
+</apex:pageblocktable>
+&nbsp;&nbsp; &nbsp;&nbsp;
+{!controller.pageNumber * controller.pagesize} &nbsp;&nbsp; of &nbsp;&nbsp; {!
+controller.resultSize}
+</apex:pageblock>
+</apex:form>
+</apex:page>

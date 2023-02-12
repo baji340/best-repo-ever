@@ -1,0 +1,14 @@
+<apex:page controller="Soqlex1" lightningstylesheets="true">
+    <apex:form >
+        <apex:pageBlock >
+        <apex:selectList size="1" value="{!selected}">
+            <apex:selectOptions value="{!options}"/>
+        </apex:selectList>
+        <apex:commandButton value="submit" action="{!reset}" reRender="pb"/>
+        <apex:pageBlockTable value="{!acc}" var="a" id="pb">
+            <apex:column value="{!a.name}"/>
+            <apex:column value="{!a.Industry}"/>
+        </apex:pageBlockTable>
+            </apex:pageBlock>
+    </apex:form>
+</apex:page>

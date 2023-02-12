@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="I am Listining" icon-name="utility:user">
+        <div class="slds-var-m-around_medium">
+            Count of Clicks : {count}
+            <c-Child-Component-Communication onincreasecount={handleEventChange} ondecreasecount={handleEventChangeless}>
+
+            </c-Child-Component-Communication>
+
+        </div>
+    </lightning-card>
+</template>

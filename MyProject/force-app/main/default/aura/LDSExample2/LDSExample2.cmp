@@ -1,0 +1,12 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+ 
+    <!-- Displays a toast notification -->
+    <lightning:notificationsLibrary aura:id="notifLib" />
+    <lightning:recordForm
+        recordId = "{!v.recordId}"
+        objectApiName="Account"
+        layoutType="Compact"
+        mode="edit" 
+        onsuccess="{!c.handleSuccess}"
+        onerror="{!c.handleError}"/>
+</aura:component>

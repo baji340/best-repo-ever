@@ -1,0 +1,108 @@
+<aura:component controller="Relatedlistcontroller" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,lightning:actionOverride,force:hasSObjectName,forceCommunity:availableForAllPageTypes" access="global" > 
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="acc" type="Account"/> 
+    <aura:attribute name="user" type="User" default="{ 'sobjectType' : 'User'}"/> 
+    <aura:attribute name="showSpinner" type="Id" default="false"/>
+    <aura:attribute name="errors" type="String" default=" "/>
+    <aura:attribute name="isOpen" type="Boolean" default="false"/>
+    <aura:attribute name="confirm" type="Boolean" default="false"/>
+    <aura:attribute name="recordError" type="String" access="private"/>
+    <aura:attribute name="isDeleteModelOpen" type="Boolean" default="false"/> 
+    <aura:attribute name="ShowCancelModel" type="Boolean" default="false"/> 
+    <aura:attribute name="showModalEdit" type="Boolean" default="false" />
+	<aura:attribute name="showModalEdit1" type="Boolean" default="true" />
+    <aura:dependency resource="markup://force:navigateToURL" type="EVENT"/>
+    <lightning:navigation aura:id="navService"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.fetchAccounts}"/> 
+    
+    <aura:if isTrue="{!v.isDeleteModelOpen}">        
+        <div aura:id="thecontainer" class="thecontainer" id="thecontainer">
+            <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open slds-modal--small" >
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header" >        
+                        <h2 class="slds-text-heading--medium" >Delete Account</h2>                        
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <p style="font-size:16px">Are you sure you want to delete this Account? </p>
+                    </div>
+                    
+                    <footer class="slds-modal__footer slds-theme_default" > 
+                        <button class="slds-button slds-button--neutral" onclick="{!c.closeDeleteModel}">Cancel</button>
+                        <button class="slds-button slds-button_brand" onclick="{!c.closemodelandDelete}">Delete</button>
+                    </footer>
+                    
+                </div>
+                
+            </div>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>  
+    </aura:if>
+    
+     <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner variant="brand" size="medium" alternativeText="Loading..."/>
+    </aura:if>
+    
+    <force:recordData aura:id="recordHandler"
+                      recordId="{!v.recordId}"
+                      fields="Id"
+                      targetError="{!v.recordError}"
+                      recordUpdated="{!c.handleRecordUpdated}" />  
+    
+    <!-- Display Lightning Data Service errors, if any -->
+    <aura:if isTrue="{!not(empty(v.recordError))}">
+        <div class="recordError">
+            <ui:message title="Error" severity="error" closable="true">
+                {!v.recordError}
+            </ui:message>
+        </div>
+    </aura:if>
+    
+    <div aura:id="stickySection" class="slds-global-header_container slds-table--header-fixed" id="wrap" style="position:fixed !important; top: 70px !important;z-index:98;">
+        <div class="slds-page-header">
+            <div class="slds my-container"> 
+                <div class="my-content">
+                    <div class="my-body">
+                        <div class="slds-grid">
+                            <lightning:icon iconName="standard:account" size="large" title="Account" alternativeText="sss"/>
+                            <div class="slds-m-right--medium"></div>
+                            <div class="slds-col slds-has-flexi-truncate">
+                                <div class="slds-media slds-no-space slds-grow"> 
+                                    <p class="slds-m-right--small slds-align-middle slds-truncate">Account<br/>
+                                        <div class="slds-text-heading_medium">
+                                            <span><b>{!v.acc.Name} </b></span>
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            
+                            <!-- Buttons -->
+                            <div style="padding:0.5rem;width:40%">
+                            <div class="slds-col slds-no-flex slds-grid slds-align-top" id="btndiv">
+                                    <div class="slds-button-group slds-float--center" role="group">
+                                        <lightning:button variant="neutral" label="Add Related SystemID" onclick="{!c.handleRelatedList}"/>
+                                        <lightning:button variant="neutral" label="Add Population" onclick="{!c.handlePopulation}"/>
+                                        <lightning:button variant="neutral" label="Add Exclusions" onclick="{!c.handleExclusions}"/>   
+                                        <!-- <lightning:button variant="neutral" label="Edit" onclick="{!c.editAccount}" />	-->
+                                        <lightning:buttonMenu aura:id="menu" onselect="{! c.handleSelect }" alternativeText="Show buttons">
+                                            <lightning:menuItem value="Edit" label="Edit" />
+                                            <lightning:menuItem value="Delete" label="Delete" />
+                                            <lightning:menuItem value="NewContact" label="New Contact"/>
+                                            <lightning:menuItem value="ExportExclusionsReport" label="Export Exclusions Report" />
+                                            <lightning:menuItem value="AddProducts" label="Add Products"/>
+                                        </lightning:buttonMenu>
+    </div>
+                            </div>  
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="spacing"><br/><br/></div>
+
+    
+</aura:component>

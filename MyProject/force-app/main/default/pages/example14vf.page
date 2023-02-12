@@ -1,0 +1,22 @@
+<apex:page controller="example14" lightningstylesheets="true">
+    <apex:form >
+        <apex:pageBlock >
+        <apex:inputText value="{!Wname}"/>
+        <apex:inputText value="{!wno}"/>
+        <apex:commandButton value="Add" action="{!add}" rerender="one"/>
+         <apex:commandButton value="Delete" action="{!del}" />
+         </apex:pageBlock>
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!exam}" var="a" id="one">
+                <apex:column >
+                    <apex:inputCheckbox />
+                    <apex:facet name="header">
+                        <apex:inputCheckbox />
+                    </apex:facet>
+                </apex:column>
+                <apex:column value="{!a.name}" headervalue="Name"/>
+                <apex:column value="{!a.no}" headervalue="No"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

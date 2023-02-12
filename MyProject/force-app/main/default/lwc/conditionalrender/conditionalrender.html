@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Welcome to HTML Binding" icon-name="utility:user">
+    <div> 
+        <br/>Hello {myvalue};
+
+    </div>
+    <lightning-input type="checkbox" label="Click me" onchange={handleonchange}></lightning-input>
+<template if:true={showme}>
+    i am visible;
+</template>
+<template if:false={showme}>
+    i am not visible;
+</template>
+</lightning-card>
+</template>

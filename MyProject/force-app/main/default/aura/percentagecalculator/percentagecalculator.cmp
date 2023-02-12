@@ -1,0 +1,18 @@
+<aura:component >
+    <aura:attribute name="wholenumber" type="integer" access = "Public"/>
+    <aura:attribute name="percentage" type="integer" access = "Public"/>
+    
+    <!--
+		public string name;
+	-->
+    
+    <div>
+        <lightning:input type="number" name="input1" label="Enter a number" value="{!v.wholenumber}"/>
+        <lightning:input type="number" name="input2" label="Enter a number" value="{!v.percentage}" formatter= "percent-fixed"/>
+    </div>
+    {!v.wholenumber}<br/>
+    {!v.percentage}<br/>
+    <br/>
+    {!div(mult(v.wholenumber,v.percentage),100)}
+    
+</aura:component>

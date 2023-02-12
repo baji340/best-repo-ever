@@ -1,0 +1,8 @@
+<aura:component >
+	<aura:attribute name="numbers" type="List"/>
+	<lightning:button onclick="{!c.getNumbers}" label="Display Numbers" />
+	<aura:iteration var="num" items="{!v.numbers}">
+        <br/>{!num.value}<br/>
+	</aura:iteration>
+
+</aura:component>

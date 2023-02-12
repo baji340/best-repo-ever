@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Searching Accounts">
+        <div>
+            <lightning-input label="Enter Account name" onchange={handleChange}></lightning-input>
+            <lightning-button label="search accounts" onclick={handleChangeMethod}></lightning-button>
+            <template if:true={datarecords}>
+            <template for:each={datarecords} for:item="data" for:index="index">
+                
+                <p key={data.Id}>
+                    Name: {data.Name}
+                 </p>
+            </template>
+        </template>
+        </div>
+    </lightning-card>
+</template>

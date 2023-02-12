@@ -1,0 +1,20 @@
+<apex:page sidebar="false" Controller="Sample" showHeader="true" lightningstylesheets="true">
+<apex:form >
+<apex:pageBlock >
+    <apex:pageBlockTable value="{!memberWrapperList}" var="W">
+        <apex:column value="{!W.member.Name}"/>
+        
+        <apex:column >
+            <apex:pageblockTable value="{!W.contactlist1}" var="I">
+                <apex:column value="{!I.Name}"/>
+                <apex:column >
+                    <apex:pageBlockTable value="{!I.Cases}" var="E">
+                        <apex:column value="{!E.CaseNumber}"/>
+                    </apex:pageBlockTable>
+                </apex:column>
+            </apex:pageblockTable>
+        </apex:column>
+    </apex:pageBlockTable>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

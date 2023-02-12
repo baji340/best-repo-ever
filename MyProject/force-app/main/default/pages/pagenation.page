@@ -1,0 +1,15 @@
+<apex:page controller="pagenation" lightningstylesheets="true">
+    <apex:form >
+        <apex:pageBlock title="Pagenation">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Previous" action="{!controller.previous}" id="pbf"/>
+                <apex:commandButton value="Next" action="{!controller.Next}" id="abc"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!opty}" var="a">
+                <apex:column value="{!a.id}"/>
+                <apex:column value="{!a.name}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>

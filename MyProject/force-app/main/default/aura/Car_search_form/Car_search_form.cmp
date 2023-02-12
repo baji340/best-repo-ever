@@ -1,0 +1,24 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+<aura:attribute name="ButtonLabel" type="string" default="Search Button"/>
+    <aura:attribute name="NewLabel" type="string" default="New Button"/>
+    <aura:attribute name="ShowNew" type="boolean" default="false"/>
+    <aura:attribute name="cartypes" type="string[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+    <lightning:layout horizontalAlign="center">
+    <lightning:layoutItem padding="around-small">
+        <lightning:select name="select item" label="Alltypes"  aura:id= "cartypelist" required="true" onchange="{!c.onchangemethod}">
+        <option value="">choose one...</option>
+         <aura:iteration items="{!v.cartypes}" var="item">
+        <option value="{!item}" text="{!item}"/>
+    </aura:iteration>
+    </lightning:select>
+    </lightning:layoutItem>
+ <lightning:layoutItem padding="around-small">
+     <lightning:button label="search" variant="brand" />
+     <aura:if isTrue="{!v.ShowNew}">
+    	<lightning:button label="New" variant="Nuetral" />
+      </aura:if> 
+     
+    </lightning:layoutItem>
+</lightning:layout>	
+</aura:component>

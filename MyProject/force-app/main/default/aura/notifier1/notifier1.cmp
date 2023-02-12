@@ -1,0 +1,11 @@
+<aura:component>
+      <!-- register Event -->
+      <aura:registerEvent name="componentEvent" type="c:componentEvent1"/>
+       
+ 
+<div class="slds-align_absolute-center slds-m-top_large">
+         <lightning:button variant="brand" label="Submit (in notifier)" value="Trigger Event" onclick="{!c.fireEvent}"/>
+      </div>
+ 
+ 
+</aura:component>

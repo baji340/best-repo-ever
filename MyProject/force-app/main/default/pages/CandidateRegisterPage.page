@@ -1,0 +1,14 @@
+<apex:page controller="CandidateRegisterClass" lightningstylesheets="true">
+    <apex:form >
+        <apex:pageBlock title="New Candidate Registration">
+            <apex:pageBlockSection >
+                <apex:inputField value="{!candidate.Email__c}"/>
+                <apex:inputField value="{!candidate.First_Name__c}"/>
+                <apex:inputField value="{!candidate.Last_Name__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="Bottom">
+                <apex:commandButton Value="Save" action="{!Saverecords}" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

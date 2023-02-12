@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Account List using iterator" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <template iterator:it={accounts.data}>
+                <p key={it.value.Id}>
+                    {it.value.Name}
+                </p>
+            </template>
+            <template if:true={accounts.error}>
+                {accounts.error}
+            </template>
+        </div>
+    </lightning-card>
+</template>
