@@ -6,6 +6,7 @@ public with sharing class Acc {
     }
     @AuraEnabled
     public static List<Account> getAllAccounts(){
+        system.debug('Entered');
         return [select Id,name,Phone,industry from Account limit 10];
 
     }
