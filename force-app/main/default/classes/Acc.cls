@@ -6,11 +6,13 @@ public with sharing class Acc {
     }
     @AuraEnabled
     public static List<Account> getAllAccounts(){
+        system.debug('Entered');
         return [select Id,name,Phone,industry from Account limit 10];
 
     }
     @AuraEnabled
     public static integer getsum( integer firstnumber,integer secondnumber){
+        system.debug('Entered');
         return (firstnumber+secondnumber);
     }
 }
