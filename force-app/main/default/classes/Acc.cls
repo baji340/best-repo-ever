@@ -12,6 +12,7 @@ public with sharing class Acc {
     }
     @AuraEnabled
     public static integer getsum( integer firstnumber,integer secondnumber){
+        system.debug('Entered');
         return (firstnumber+secondnumber);
     }
 }
